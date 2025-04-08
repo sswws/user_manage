@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, Input, Card, message, Spin } from 'antd';
+import { Button, Form, Input, Card, message, Spin, notification } from 'antd';
 import { UserOutlined, LockOutlined, SafetyOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { mockLogin } from '../../mock/users';
@@ -14,6 +14,7 @@ interface LoginFormData {
 const Login: React.FC = () => {
     const [loading, setLoading] = useState(false);
     const [initLoading, setInitLoading] = useState(true);
+    const [loginError, setLoginError] = useState<string | null>(null);
     const navigate = useNavigate();
 
     // 模拟页面加载效果
@@ -26,6 +27,8 @@ const Login: React.FC = () => {
 
     const onFinish = (values: LoginFormData) => {
         setLoading(true);
+        setLoginError(null); // 清除之前的错误信息
+        
         // 使用mock服务进行登录验证
         mockLogin(values.username, values.password)
             .then(response => {
@@ -43,12 +46,29 @@ const Login: React.FC = () => {
                     // 登录成功后跳转到仪表盘
                     navigate('/dashboard');
                 } else {
-                    message.error(response.message);
+                    // 显示错误信息
+                    notification.error({
+                        message: '登录失败',
+                        description: response.message || '用户名或密码错误',
+                        duration: 3,
+                        placement: 'top'
+                    });
+                    
+                    // 添加message错误提示 - 简化配置
+                    message.error(response.message || '用户名或密码错误');
+                    
+                    // 设置登录错误状态
+                    setLoginError(response.message || '用户名或密码错误');
                 }
             })
             .catch(error => {
                 console.error('登录出错:', error);
-                message.error('登录过程中发生错误，请稍后再试');
+                notification.error({
+                    message: '登录失败',
+                    description: '登录过程中发生错误，请稍后再试',
+                    duration: 3,
+                    placement: 'top'
+                });
             })
             .finally(() => {
                 setLoading(false);
@@ -71,6 +91,7 @@ const Login: React.FC = () => {
                             <h1>用户管理系统</h1>
                             <p>欢迎登录后台管理系统</p>
                         </div>
+
                         <Form
                             name="login"
                             initialValues={{ remember: true }}
@@ -81,18 +102,31 @@ const Login: React.FC = () => {
                         >
                             <Form.Item
                                 name="username"
-                                rules={[{ required: true, message: '请输入用户名!' }]}
+                                rules={[
+                                    { required: true, message: '请输入用户名!' },
+                                    { min: 3, message: '用户名至少需要3个字符' }
+                                ]}
+                                validateTrigger={['onChange', 'onBlur']}
                             >
-                                <Input prefix={<UserOutlined />} placeholder="用户名: admin" />
+                                <Input 
+                                    prefix={<UserOutlined />} 
+                                    placeholder="用户名: admin" 
+                                    autoComplete="username"
+                                />
                             </Form.Item>
 
                             <Form.Item
                                 name="password"
-                                rules={[{ required: true, message: '请输入密码!' }]}
+                                rules={[
+                                    { required: true, message: '请输入密码!' },
+                                    { min: 6, message: '密码至少需要6个字符' }
+                                ]}
+                                validateTrigger={['onChange', 'onBlur']}
                             >
                                 <Input.Password
                                     prefix={<LockOutlined />}
                                     placeholder="密码: admin123"
+                                    autoComplete="current-password"
                                 />
                             </Form.Item>
 

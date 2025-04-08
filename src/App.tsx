@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { ConfigProvider, App as AntdApp, message } from 'antd'
 import './App.css'
+
+// 配置全局message，确保消息显示在页面顶部
+message.config({
+  top: 65,
+  duration: 2,
+  maxCount: 3
+})
 
 // 导入组件
 import Login from './pages/login/Login'
@@ -38,23 +46,27 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        
-        {/* 受保护的路由 */}
-        <Route path="/" element={isAuthenticated ? <AppLayout /> : <Navigate to="/login" />}>
-          <Route index element={<Navigate to="/dashboard" />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="users" element={<Users />} />
-          <Route path="roles" element={<Roles />} />
-          <Route path="logs" element={<Logs />} />
-          <Route path="statistics" element={<Statistics />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ConfigProvider>
+      <AntdApp>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            
+            {/* 受保护的路由 */}
+            <Route path="/" element={isAuthenticated ? <AppLayout /> : <Navigate to="/login" />}>
+              <Route index element={<Navigate to="/dashboard" />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="users" element={<Users />} />
+              <Route path="roles" element={<Roles />} />
+              <Route path="logs" element={<Logs />} />
+              <Route path="statistics" element={<Statistics />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="profile" element={<Profile />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AntdApp>
+    </ConfigProvider>
   )
 }
 
