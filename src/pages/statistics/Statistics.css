@@ -1,0 +1,143 @@
+.statistics-container {
+  padding: 0;
+}
+
+.statistics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.statistics-header h2 {
+  margin: 0;
+}
+
+.statistics-summary {
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.summary-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  margin-right: 16px;
+  color: white;
+  font-size: 24px;
+}
+
+.summary-content {
+  flex: 1;
+}
+
+.summary-title {
+  color: #8c8c8c;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.summary-value {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.summary-trend {
+  font-size: 12px;
+}
+
+.summary-trend.positive {
+  color: #52c41a;
+}
+
+.summary-trend.negative {
+  color: #f5222d;
+}
+
+.statistics-charts {
+  margin-top: 24px;
+}
+
+.chart-controls {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chart-card {
+  margin-bottom: 16px;
+}
+
+.chart-placeholder {
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-title {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-weight: 500;
+}
+
+.chart-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 40px 20px 20px;
+}
+
+.chart-bars {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.chart-bar {
+  width: 8%;
+  border-radius: 4px 4px 0 0;
+  opacity: 0.8;
+}
+
+.chart-bar:hover {
+  opacity: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .statistics-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .statistics-controls {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summary-card {
+    margin-bottom: 16px;
+  }
+}

@@ -1,0 +1,87 @@
+.users-container {
+  padding: 16px;
+}
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.users-header h2 {
+  margin-bottom: 0;
+  font-weight: 500;
+  color: #1890ff;
+}
+
+.users-toolbar {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.status-tag.active {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #91d5ff;
+}
+
+.status-tag.inactive {
+  background-color: #fff1f0;
+  color: #ff4d4f;
+  border: 1px solid #ffa39e;
+}
+
+/* 用户详情样式 */
+.user-detail {
+  padding: 0 8px;
+}
+
+.user-detail-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.user-detail-header h3 {
+  margin: 16px 0 4px;
+  font-weight: 500;
+}
+
+.user-detail-header p {
+  color: #8c8c8c;
+  margin: 0;
+}
+
+.detail-item {
+  margin-bottom: 16px;
+}
+
+.detail-label {
+  color: #8c8c8c;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.detail-value {
+  font-weight: 500;
+}
+
+/* 表格操作按钮样式 */
+.ant-table-cell .ant-btn-text {
+  padding: 4px 8px;
+}
+
+/* 搜索框样式 */
+.ant-input-search {
+  margin-right: 8px;
+}

@@ -1,0 +1,37 @@
+.settings-container {
+  padding: 0;
+}
+
+.settings-container h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.ant-tabs-nav {
+  margin-bottom: 24px;
+}
+
+.ant-form-item-label {
+  font-weight: 500;
+}
+
+.settings-section {
+  margin-bottom: 24px;
+}
+
+.settings-section-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+  
+  .ant-tabs-tab {
+    padding: 8px 12px;
+  }
+}

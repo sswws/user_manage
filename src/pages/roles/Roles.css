@@ -1,0 +1,63 @@
+.roles-container {
+  padding: 0;
+}
+
+.roles-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.roles-header h2 {
+  margin: 0;
+}
+
+.roles-toolbar {
+  margin-bottom: 16px;
+}
+
+.status-tag {
+  border-radius: 4px;
+  padding: 0 8px;
+  font-weight: 500;
+}
+
+.status-tag.active {
+  background-color: #52c41a;
+  color: #fff;
+}
+
+.status-tag.inactive {
+  background-color: #ff4d4f;
+  color: #fff;
+}
+
+.permission-selector {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.permission-module {
+  margin-bottom: 16px;
+}
+
+.permission-info {
+  margin-left: 4px;
+  color: #1890ff;
+  cursor: help;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .roles-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .roles-header > div {
+    margin-top: 16px;
+    width: 100%;
+  }
+}

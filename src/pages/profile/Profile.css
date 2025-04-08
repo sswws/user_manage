@@ -1,0 +1,67 @@
+.profile-container {
+  padding: 0;
+}
+
+.profile-section {
+  margin-top: 16px;
+}
+
+.avatar-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-upload {
+  margin-top: 16px;
+}
+
+.section-item {
+  margin-bottom: 24px;
+}
+
+.section-header {
+  margin-bottom: 16px;
+}
+
+.section-header h3 {
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  color: #8c8c8c;
+  margin: 0;
+}
+
+.section-content {
+  margin-bottom: 16px;
+}
+
+.security-section .ant-list-item-meta-title {
+  font-weight: 500;
+}
+
+.security-section .ant-list-item-meta-description {
+  color: #8c8c8c;
+}
+
+.notification-section .ant-form-item {
+  margin-bottom: 16px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .avatar-section {
+    margin-bottom: 32px;
+  }
+  
+  .profile-section .ant-col {
+    margin-bottom: 16px;
+  }
+}
