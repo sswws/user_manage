@@ -45,8 +45,31 @@ function App() {
     }
   }, [])
 
+  // 初始化主题管理器
+  useEffect(() => {
+    import('./utils/themeManager').then(({ initThemeManager }) => {
+      initThemeManager();
+    });
+    
+    // 初始化安全管理器
+    import('./utils/securityManager').then(({ initSecurityManager }) => {
+      initSecurityManager();
+    });
+    
+    // 初始化通知管理器
+    import('./utils/notificationManager').then(({ initNotificationManager }) => {
+      initNotificationManager();
+    });
+  }, []);
+  
   return (
-    <ConfigProvider>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#1890ff',
+        },
+      }}
+    >
       <AntdApp>
         <BrowserRouter>
           <Routes>
