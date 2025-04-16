@@ -1,0 +1,199 @@
+/* 响应式样式 - 移动端适配 */
+
+/* 基础响应式设置 */
+@media (max-width: 768px) {
+  /* 通用容器样式 */
+  .ant-layout-content {
+    padding: 12px !important;
+  }
+  
+  .ant-card {
+    margin-bottom: 12px;
+  }
+  
+  /* 表格适配 */
+  .ant-table {
+    font-size: 12px;
+  }
+  
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 8px 4px;
+  }
+  
+  /* 表单适配 */
+  .ant-form-item {
+    margin-bottom: 12px;
+  }
+  
+  /* 按钮组适配 */
+  .ant-btn {
+    padding: 0 8px;
+    font-size: 12px;
+    height: 28px;
+  }
+  
+  .ant-btn + .ant-btn {
+    margin-left: 4px;
+  }
+  
+  /* 标题适配 */
+  h1 {
+    font-size: 20px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  h3 {
+    font-size: 16px;
+  }
+  
+  /* 图表适配 */
+  .recharts-wrapper {
+    font-size: 10px;
+  }
+  
+  /* 统计数据卡片适配 */
+  .ant-statistic-title {
+    font-size: 12px;
+  }
+  
+  .ant-statistic-content {
+    font-size: 18px;
+  }
+  
+  /* 菜单适配 */
+  .ant-menu-item {
+    padding: 0 12px !important;
+    font-size: 12px;
+  }
+  
+  /* 模态框适配 */
+  .ant-modal {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+  
+  .ant-modal-body {
+    padding: 12px;
+  }
+  
+  /* 日期选择器适配 */
+  .ant-picker {
+    width: 100% !important;
+  }
+  
+  /* 选择器适配 */
+  .ant-select {
+    width: 100% !important;
+  }
+  
+  /* 标签适配 */
+  .ant-tag {
+    margin-bottom: 4px;
+  }
+  
+  /* 步骤条适配 */
+  .ant-steps-item-title {
+    font-size: 12px;
+  }
+}
+
+/* 小屏幕手机适配 */
+@media (max-width: 480px) {
+  /* 表格更紧凑 */
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 4px 2px;
+    font-size: 11px;
+  }
+  
+  /* 隐藏部分表格列 */
+  .mobile-hidden-column {
+    display: none;
+  }
+  
+  /* 更小的按钮 */
+  .ant-btn {
+    padding: 0 6px;
+    font-size: 11px;
+    height: 24px;
+  }
+  
+  /* 更紧凑的表单 */
+  .ant-form-item-label {
+    padding-bottom: 4px;
+  }
+  
+  /* 更小的图标 */
+  .anticon {
+    font-size: 14px;
+  }
+  
+  /* 更小的标题 */
+  h1 {
+    font-size: 18px;
+  }
+  
+  h2 {
+    font-size: 16px;
+  }
+  
+  h3 {
+    font-size: 14px;
+  }
+}
+
+/* 移动端导航适配 */
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: block;
+  }
+  
+  .mobile-menu-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* 移动端操作按钮适配 */
+.mobile-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* 移动端表单布局适配 */
+@media (max-width: 768px) {
+  .ant-form-item-label {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .ant-form-item-control {
+    width: 100%;
+  }
+  
+  .ant-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

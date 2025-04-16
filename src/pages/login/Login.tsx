@@ -34,9 +34,14 @@ const Login: React.FC = () => {
             .then(response => {
                 if (response.success) {
                     message.success(response.message);
-                    // 保存token和用户信息到localStorage
-                    localStorage.setItem('userToken', response.token!);
+                    // 使用tokenManager保存token和用户信息
+                    import('../../utils/tokenManager').then(({ saveToken }) => {
+                        saveToken(response.token!);
+                    });
+                    
+                    // 保存用户名和其他信息
                     localStorage.setItem('userName', response.user?.name || values.username);
+                    
                     // 可以保存更多用户信息
                     if (response.user) {
                         localStorage.setItem('userInfo', JSON.stringify(response.user));
